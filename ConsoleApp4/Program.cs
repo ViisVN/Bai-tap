@@ -6,26 +6,25 @@ namespace Luudo
     {
         static void Main(string[] args)
         {
-            float n =float.Parse(Console.ReadLine());
-            float m = 2;
-            float r;
-        Comback:
-            r = n % m;
-            Console.WriteLine("Gia tri r là :" + r);
-            if (r == 0)
-            {
-                Console.WriteLine("N is NOT prime number");
-            }    
-            else if (m < n-1)
-            {
-                Console.WriteLine("N is a Prime Number");
-            }    
-            else
-            {
-                m = m + 1;
-                goto Comback;
-            }    
-            }   
+            float a, b, c, d;
+            Console.Write("\n Nhap bon so 4 a b c d:");
+            Console.Write("\n Nhap a: ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("\n Nhap b: ");
+            b = float.Parse(Console.ReadLine());
+            Console.Write("\n Nhap c: ");
+            c = float.Parse(Console.ReadLine());
+            Console.Write("\n Nhap d: ");
+            d = float.Parse(Console.ReadLine());
+            float min1 = Math.Min(a, b);
+            float min2 = Math.Min(c, d);
+            float min = Math.Min(min1, min2);
+            float max1 = Math.Max(a, b);
+            float max2 = Math.Max(c, d);
+            float max = Math.Max(max1, max2);
+            Console.Write("\n\n Số min của dãy a b c d là: "+ min);
+            Console.Write("\n\n Số max của dãy a b c d là: " + max);
         }
     }
+}
     
