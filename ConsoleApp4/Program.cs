@@ -10,7 +10,7 @@ namespace Luudo
             int b;
             string ktra;
             ktra = Console.ReadLine();
-            Console.Write("\n Ki tu vua nhap là: " + ktra);
+            Console.Write("\n Noi dung vua nhap là: " + ktra);
             if (char.TryParse(ktra, out a) == false)
             {
                 Console.Write("\n\nKi tu vua nhap khong phai mot chua cai");
