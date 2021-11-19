@@ -16,7 +16,7 @@ namespace Luudo
             }    
             else
             {
-                c = b / a;
+                c = a / b;
                 Console.WriteLine(c);
             }   
         }
