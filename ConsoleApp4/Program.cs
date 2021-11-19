@@ -6,32 +6,43 @@ namespace Luudo
     {
         static void Main(string[] args)
         {
-            char a;
-            int b;
-            string ktra;
-            ktra = Console.ReadLine();
-            Console.Write("\n Noi dung vua nhap là: " + ktra);
-            if (char.TryParse(ktra, out a) == false)
+            Console.WriteLine("           MENU          ");
+            Console.WriteLine("=========================");
+            Console.WriteLine("1. CF");
+            Console.WriteLine("2. C");
+            Console.WriteLine("3. HD");
+            Console.WriteLine("4. DressWeaver");
+            Console.WriteLine("5. RDBMS");
+            Console.WriteLine("6. Learn Java by example");
+            Console.WriteLine("=========================");
+            Console.Write("\nChon: ");
+            int a = int.Parse(Console.ReadLine());
+            switch (a)
             {
-                Console.Write("\n\nKi tu vua nhap khong phai mot chua cai");
-            }    
-            else if (int.TryParse(ktra, out b) == true)
-            {
-                Console.Write("\n\n Ki tu vua nhap la con so");
-                goto kethuc;
-            }    
-            else if (a == 'a'|| a== 'e' || a == 'o' || a == 'i' || a == 'u' || a == 'A' || a == 'E' || a == 'I' || a == 'O' || a == 'U')
-            {
-                Console.Write("\n\n Ki tu vua nhap la chu nguyen am");
-            }    
-            else
-            {
-                Console.Write("\n\n Ki tu vua nhap la phu am");
-
+                case 1:
+                    Console.WriteLine("Ban chon CF");
+                    break;
+                case 2:
+                    Console.WriteLine("Ban chon C");
+                    break;
+                case 3:
+                    Console.WriteLine("Ban chon HD");
+                    break;
+                case 4:
+                    Console.WriteLine("Ban chon DressWeaber");
+                    break;
+                case 5:
+                    Console.WriteLine("Ban chon RDBMS");
+                    break;
+                case 6:
+                    Console.WriteLine("Ban chon Learn Jave by example");
+                    break;
+                default:
+                    Console.WriteLine("Ban da chon sai");
+                    break;
             }
-        kethuc:;
 
-
+            
         }
           
     }
