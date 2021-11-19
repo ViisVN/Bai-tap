@@ -6,36 +6,31 @@ namespace Luudo
     {
         static void Main(string[] args)
         {
-            float a, b, c;
-            Console.Write("\n Nhap bon so 3 a b c :");
-            Console.Write("\n Nhap a: ");
-            a = float.Parse(Console.ReadLine());
-            Console.Write("\n Nhap b: ");
-            b = float.Parse(Console.ReadLine());
-            Console.Write("\n Nhap c: ");
-            c = float.Parse(Console.ReadLine());
-            float d1 = a + b;
-            float d2 = b + c;
-            float d3 = a + c;
-            // Tam giac co tong hai canh lon hon canh con lai
-            Console.WriteLine(" Tong cua a va b la: " + d1 + " gia tri cua c la : " + c);
-            Console.WriteLine(" Tong cua b va c la: " + d2 + " gia tri cua a la : " + a);
-            Console.WriteLine(" Tong cua a va c la: " + d3 + " gia tri cua b la : " + b);
-            if (d1 < c|| d2<a || d3<b)
+            double km, tientaxi, tiengiamgia;
+            Console.Write("\n Nhap so km da di: ");
+            km = double.Parse(Console.ReadLine());
+            if (km <= 1)
             {
-                Console.WriteLine(" a b c không phải cạnh của tam giác");
+                tientaxi = km * 15000;
+            }
+            else if (km>1 && km<=5)
+            {
+                tientaxi = km * 13500;
             }    
             else
             {
-                Console.WriteLine(" a b c là cạnh của tam giác");
+                tientaxi = km * 11000;
             }
-             
-                  
-                    
+            if(km>120)
+            {
+                tiengiamgia = tientaxi * 0.9;
+                Console.WriteLine("Tong tien Taxi là : " + tiengiamgia + " VND");
+            }    
+            else
+            {
+                Console.WriteLine("Tong tien taxi là : " + tientaxi + " VND");
+            } 
 
-            
-
-          
         }
     }
 }
