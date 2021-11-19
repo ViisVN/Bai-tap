@@ -6,32 +6,34 @@ namespace Luudo
     {
         static void Main(string[] args)
         {
-            double km, tientaxi, tiengiamgia;
-            Console.Write("\n Nhap so km da di: ");
-            km = double.Parse(Console.ReadLine());
-            if (km <= 1)
+            char a;
+            int b;
+            string ktra;
+            ktra = Console.ReadLine();
+            Console.Write("\n Ki tu vua nhap là: " + ktra);
+            if (char.TryParse(ktra, out a) == false)
             {
-                tientaxi = km * 15000;
-            }
-            else if (km>1 && km<=5)
+                Console.Write("\n\nKi tu vua nhap co nhieu hon mot chu cai");
+            }    
+            else if (int.TryParse(ktra, out b) == true)
             {
-                tientaxi = km * 13500;
+                Console.Write("\n\n Ki tu vua nhap la con so");
+                goto kethuc;
+            }    
+            else if ((Char.ToUpper(a) == a))
+            {
+                Console.Write("\n\n Ki tu vua nhap la chu in hoa");
             }    
             else
             {
-                tientaxi = km * 11000;
+                Console.Write("\n\n Ki tu vua nhap la chu in thuong");
+
             }
-            if(km>120)
-            {
-                tiengiamgia = tientaxi * 0.9;
-                Console.WriteLine("Tong tien Taxi là : " + tiengiamgia + " VND");
-            }    
-            else
-            {
-                Console.WriteLine("Tong tien taxi là : " + tientaxi + " VND");
-            } 
+        kethuc:;
+
 
         }
+          
     }
 }
     
