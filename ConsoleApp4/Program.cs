@@ -6,24 +6,36 @@ namespace Luudo
     {
         static void Main(string[] args)
         {
-            float a, b, c, d;
-            Console.Write("\n Nhap bon so 4 a b c d:");
+            float a, b, c;
+            Console.Write("\n Nhap bon so 3 a b c :");
             Console.Write("\n Nhap a: ");
             a = float.Parse(Console.ReadLine());
             Console.Write("\n Nhap b: ");
             b = float.Parse(Console.ReadLine());
             Console.Write("\n Nhap c: ");
             c = float.Parse(Console.ReadLine());
-            Console.Write("\n Nhap d: ");
-            d = float.Parse(Console.ReadLine());
-            float min1 = Math.Min(a, b);
-            float min2 = Math.Min(c, d);
-            float min = Math.Min(min1, min2);
-            float max1 = Math.Max(a, b);
-            float max2 = Math.Max(c, d);
-            float max = Math.Max(max1, max2);
-            Console.Write("\n\n Số min của dãy a b c d là: "+ min);
-            Console.Write("\n\n Số max của dãy a b c d là: " + max);
+            float d1 = a + b;
+            float d2 = b + c;
+            float d3 = a + c;
+            // Tam giac co tong hai canh lon hon canh con lai
+            Console.WriteLine(" Tong cua a va b la: " + d1 + " gia tri cua c la : " + c);
+            Console.WriteLine(" Tong cua b va c la: " + d2 + " gia tri cua a la : " + a);
+            Console.WriteLine(" Tong cua a va c la: " + d3 + " gia tri cua b la : " + b);
+            if (d1 < c|| d2<a || d3<b)
+            {
+                Console.WriteLine(" a b c không phải cạnh của tam giác");
+            }    
+            else
+            {
+                Console.WriteLine(" a b c là cạnh của tam giác");
+            }
+             
+                  
+                    
+
+            
+
+          
         }
     }
 }
