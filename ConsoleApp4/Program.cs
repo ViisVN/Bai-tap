@@ -6,39 +6,41 @@ namespace Luudo
     {
         static void Main(string[] args)
         {
+            float a, b;
+            char c;
+            Console.Write("Nhap so thu nhat: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Nhap so thu hai: ");
+            b = int.Parse(Console.ReadLine());
             Console.WriteLine("           MENU          ");
             Console.WriteLine("=========================");
-            Console.WriteLine("1. CF");
-            Console.WriteLine("2. C");
-            Console.WriteLine("3. HD");
-            Console.WriteLine("4. DressWeaver");
-            Console.WriteLine("5. RDBMS");
-            Console.WriteLine("6. Learn Java by example");
+            Console.WriteLine("+");
+            Console.WriteLine("-");
+            Console.WriteLine("*");
+            Console.WriteLine("/");
             Console.WriteLine("=========================");
-            Console.Write("\nChon: ");
-            int a = int.Parse(Console.ReadLine());
-            switch (a)
+            Console.Write("\nChon : ");  
+            c = char.Parse(Console.ReadLine());
+            switch (c)
             {
-                case 1:
-                    Console.WriteLine("Ban chon CF");
+                case '+':
+                    float d = a + b;
+                    Console.WriteLine("Tong: "+a+" + "+b +" = "+d);
                     break;
-                case 2:
-                    Console.WriteLine("Ban chon C");
+                case '-':
+                    d = a - b;
+                    Console.WriteLine("Thuong: " + a + " - " + b + " = " + d);
                     break;
-                case 3:
-                    Console.WriteLine("Ban chon HD");
+                case '*':
+                    d = a * b;
+                    Console.WriteLine("Nhan: " + a + " * " + b + " = " + d);
                     break;
-                case 4:
-                    Console.WriteLine("Ban chon DressWeaber");
-                    break;
-                case 5:
-                    Console.WriteLine("Ban chon RDBMS");
-                    break;
-                case 6:
-                    Console.WriteLine("Ban chon Learn Jave by example");
+                case '/':
+                    d = a / b;
+                    Console.WriteLine("Chia: " + a + " / " + b + " = " + d);
                     break;
                 default:
-                    Console.WriteLine("Ban da chon sai");
+                    Console.WriteLine("Ban da nhap sai");
                     break;
             }
 
