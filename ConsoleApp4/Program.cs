@@ -1,33 +1,46 @@
 ﻿using System;
 
-namespace Luudo
+namespace Vong_lap
 {
     class baitap
     {
-      static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Nhap_n:
-            Console.Write("\nNhap n: ");
-            int n = Convert.ToInt32(Console.ReadLine());
-            if(n<=0)
+            char n;
+            int n1;
+        Back:
+            Console.Write("\nNhap ki tu: ");
+            string ktra = Console.ReadLine();
+            if (char.TryParse(ktra, out n) == false)
             {
-                Console.WriteLine("Ban phai nhap n lon hon 0");
-                goto Nhap_n;
+                Console.WriteLine("Dong vua nhap nhieu hon mot ki tu");
+                goto Back;
+            }
+            if (char.TryParse(ktra, out n) == true&&int.TryParse(ktra,out n1) == false)
+            {
+                n = Convert.ToChar(ktra);
+                    if((int)n>=65&&(int)n<=90||(int)n>=97&&(int)n<=122)
+                    {
+                        Console.WriteLine("Chu cai");
+                    }
+                    else if((int)n==32)
+                {
+                    Console.WriteLine("Ket thuc");
+                    goto end;
+                }
+                    else
+                    {
+                        Console.WriteLine("Ki tu dac biet");
+                    }           
             }
             else
             {
-                for(int i =0; i<=n; i++)
-                {
-                    if (i % 2==0)
-                    {
-                        Console.Write(i + " ");
-                    }
-                }    
+                Console.WriteLine("Con so");
             }
+        end:;
+
+
         }
-                                      
-
-
     }
 }
     
