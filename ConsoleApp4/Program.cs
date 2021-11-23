@@ -6,40 +6,22 @@ namespace Vong_lap
     {
         static void Main(string[] args)
         {
-            char n;
-            int n1;
-        Back:
-            Console.Write("\nNhap ki tu: ");
-            string ktra = Console.ReadLine();
-            if (char.TryParse(ktra, out n) == false)
+            Console.Write("Nhap m va n: ");
+            int n=Convert.ToInt32(Console.ReadLine());
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[] a = new int[m - n];
+            for(int i=0;i< m-n;i++)
             {
-                Console.WriteLine("Dong vua nhap nhieu hon mot ki tu");
-                goto Back;
+                a[i]=i+n;
             }
-            if (char.TryParse(ktra, out n) == true&&int.TryParse(ktra,out n1) == false)
+            Console.Write("\nCai so chia het cho 7 la: ");
+            for(int i=0; i<m-n;i++)
             {
-                n = Convert.ToChar(ktra);
-                    if((int)n>=65&&(int)n<=90||(int)n>=97&&(int)n<=122)
-                    {
-                        Console.WriteLine("Chu cai");
-                    }
-                    else if((int)n==32)
+                if(a[i]%7==0)
                 {
-                    Console.WriteLine("Ket thuc");
-                    goto end;
+                    Console.Write(a[i] + "  ");
                 }
-                    else
-                    {
-                        Console.WriteLine("Ki tu dac biet");
-                    }           
             }
-            else
-            {
-                Console.WriteLine("Con so");
-            }
-        end:;
-
-
         }
     }
 }
