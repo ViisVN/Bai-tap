@@ -1,29 +1,25 @@
 ﻿using System;
 
-namespace Vong_lap
+namespace String
 {
-    class baitap
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Nhap 1 so nguyen lon hon 0:  ");
-            int n = Convert.ToInt32(Console.ReadLine());
-            int[] arr = new int[Convert.ToString(n).Length];
-            int sum = 0;
-            for (int i = 0; i < Convert.ToString(n).Length; i++)
+            Console.Write("\n Nhap vao so luong phan tu: "); int n = Convert.ToInt32(Console.ReadLine());
+            int[] a = new int[n];
+            Console.Write("\n Cac so nam trong n gom: ");
+            for (int i=0; i<n;i++)
             {
-                arr[i] = (Convert.ToInt32(Convert.ToString(n)[i]) - 48);
+                Console.Write("\na[" + i + "]");
+                a[i]=Convert.ToInt32(Console.ReadLine());
             }
-            Console.Write("\nDay so bao gom: ");
-            for (int i = 0; i < Convert.ToString(n).Length; i++)
+            Console.Write("\nPhan tu nam o day chan la: ");
+            for(int i=0; i<n;i+=2)
             {
-                Console.Write(arr[i] + " ");
-                sum += arr[i];
-            }
-            Console.Write("\nTong cac so trong do la: " + sum);
-
+                Console.Write("\na[" + i + "]");
+                a[i] = Convert.ToInt32(Console.ReadLine());
+            }    
         }
-
     }
 }
-    
