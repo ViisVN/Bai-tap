@@ -6,27 +6,29 @@ namespace String
     {
         static void Main(string[] args)
         {
-            Console.Write("\n Nhap vao so luong phan tu: "); int n = 10;
-            int[] a = new int[n];
-            Console.Write("\n Nhap vao so luong phan tu: "); int m = 5;
-            double[] b = new double[m];
-            for (int i=0; i<m;i++)
+            int n = 20;
+            double[] a = new double[n];
+            for (int i = 1; i < n + 1; i++)
             {
-                Console.Write("\nb[" + i + "]: ");
-                b[i]=Convert.ToDouble(Console.ReadLine());
-            }
-            for (int i=0; i < m ;i++)
-            {
-                if(i%2!=0)
+                if (i == 1)
                 {
-                   a[i] = (int)b[i];
+                    a[i - 1] = 1;
                 }
+                if (i == 2)
+                {
+                    a[i - 1] = 1;
+                }
+                if (i > 2)
+                {
+                    a[i - 1] = (1 / Math.Sqrt(5) * ((Math.Pow(((1 + Math.Sqrt(5)) / 2), i)) - (Math.Pow(((1 - Math.Sqrt(5)) / 2), i))));
+                }
+
             }
-            Console.Write("\nMang a gom: ");
-            for(int i=0; i<n ;i++)
+            for (int i = 0; i < n; i++)
             {
-                Console.Write("\na[" + i + "] :" + a[i]);
-            }    
+                Console.Write("\na[" + i + "]: " + (int)a[i]);
+            }
         }
     }
 }
+            
