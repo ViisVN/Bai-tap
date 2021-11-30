@@ -7,40 +7,33 @@ namespace String
         static void Main(string[] args)
         {
             int n = 10;
-            int countmax, countmin,max,min;
-            max = 0;countmin = 0;countmax = 0;
             int[] a = new int[n];
             for (int i = 0; i < n; i++)
             {
+                Console.Write("\na[" + i + "]: ");
                 a[i] = Convert.ToInt32(Console.ReadLine());
             }
-            min = a[0];
-            for (int i = 0;i < n; i++)
+            Console.Write("Nhap x: ")
+            int x = Convert.ToInt32(Console.ReadLine());
+            int vitri=0, xcount=0;
+            for (int i = 0; i < n; i++)
             {
-               if(a[i]>=max)
-                {
-                    max = a[i];
-                }
-                else if (a[i] <= min)
-                {
-                    min = a[i];
+                if(x==a[i])
+                    {
+                    vitri = i;
+                    break;
                 }
             }
             for (int i = 0; i < n; i++)
             {
-                if (max == a[i])
+                if(x==a[i])
                 {
-                    countmax += 1;
-                }
-                else if (min == a[i])
-                {
-                    countmin += 1;
+                    xcount += 1;
                 }
             }
-            Console.WriteLine(max); 
-                Console.WriteLine(countmax);
-            Console.WriteLine(min); 
-                Console.WriteLine(countmin);
+            Console.Write("\n Vitri dau tien cua x trong mang la: " + vitri);
+            Console.Write("\n So lan x xuat hien trong mang la: " + xcount)
+;           
         }
     }
 }
