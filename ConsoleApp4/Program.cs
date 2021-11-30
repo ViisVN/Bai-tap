@@ -13,7 +13,7 @@ namespace String
                 Console.Write("\na[" + i + "]: ");
                 a[i] = Convert.ToInt32(Console.ReadLine());
             }
-            Console.Write("Nhap x: ")
+            Console.Write("Nhap x: ");
             int x = Convert.ToInt32(Console.ReadLine());
             int vitri=0, xcount=0;
             for (int i = 0; i < n; i++)
