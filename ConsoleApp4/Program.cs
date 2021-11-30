@@ -4,33 +4,42 @@ namespace String
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void GiaiPT2(double a, double b, double c)
         {
-            int n = 5;
-            int m = 7;
-            double[,] a = new double[n, m];
-            Random r = new Random();
-            for (int i = 0; i < n; i++)
+            double delta = (Math.Pow(b, 2)) - (4 * a * c);
+            if (delta < 0)
             {
-                for (int j = 0; j < m; j++)
-                {
-                    a[i, j] = r.Next(15,20);
-                    Console.Write("\na[" + i + "," + j + "]: " + a[i, j]);
-
-                }
+                Console.Write("\nPhuong trinh vo nghiem.");
             }
-                Console.Write("\nHoc vien :  CF  :  C   :  HDJ  : DU  :RDBNS : Java :  TB  ");
-                Console.Write("\n----------------------------------------------------------");
-            for (int ai = 0; ai < n; ai++)
+            else if (delta == 0)
             {
-                Console.Write("\nHV" + (ai + 1) + "      ");
-                for (int j = 0; j < m; j++)
-                {
-                    Console.Write(": " + string.Format("{0:0.0}", a[ai, j]) + " ");
-                }
+                double x = -b / a;
+                Console.Write("\nPhuong trinh co nghiem kep x la: "+x);
+                
             }
-                Console.Write("\n----------------------------------------------------------");
+            else
+            {
+                double x1 = (-b + Math.Sqrt(delta)) / (2*a);
+                double x2 = (-b - Math.Sqrt(delta)) / (2*a);
+                Console.Write("\nPhuong trinh co hai nghiem");
+                Console.Write("\nx1: "+x1);
+                Console.Write("\nx2: "+x2);
             }
         }
+        static void Main(string[] args)
+        {
+            Console.Write("\nNhap a b c:\n");
+            nhaplai:
+            int a = int.Parse(Console.ReadLine());
+            if (a==0)
+            {
+                Console.Write("\na phai khac khong, nhap lai a\n");
+                goto nhaplai;
+            }    
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
+            GiaiPT2(a, b, c);
+        }
     }
+}
             
