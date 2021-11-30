@@ -3,18 +3,19 @@
 namespace String
 {
     class Program
-    { 
-     static void power(int a,int b)
+    {
+        static void fina(long d)
         {
-            double c = Math.Pow(a, b);
-            Console.Write("Gia tri cua a mu n la: "+ c);
+          double b = (1 / Math.Sqrt(5) * ((Math.Pow(((1 + Math.Sqrt(5)) / 2), d)) - (Math.Pow(((1 - Math.Sqrt(5)) / 2), d))));
+            Console.WriteLine("Gia tri so fina thu "+d+" la : "+(int)b);
         }
-     static void Main(string[] args)
+        static void Main(string[] args)
         {
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            power(a,b);
+            Console.Write("\nNhap thu tu so fina: ");
+            int a= Convert.ToInt32(Console.ReadLine());
+            fina(a);
         }
+      
     }
 }
             
