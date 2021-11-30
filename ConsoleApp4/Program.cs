@@ -6,28 +6,41 @@ namespace String
     {
         static void Main(string[] args)
         {
-            int n = 20;
-            double[] a = new double[n];
-            for (int i = 1; i < n + 1; i++)
+            int n = 10;
+            int countmax, countmin,max,min;
+            max = 0;countmin = 0;countmax = 0;
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
             {
-                if (i == 1)
+                a[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            min = a[0];
+            for (int i = 0;i < n; i++)
+            {
+               if(a[i]>=max)
                 {
-                    a[i - 1] = 1;
+                    max = a[i];
                 }
-                if (i == 2)
+                else if (a[i] <= min)
                 {
-                    a[i - 1] = 1;
+                    min = a[i];
                 }
-                if (i > 2)
-                {
-                    a[i - 1] = (1 / Math.Sqrt(5) * ((Math.Pow(((1 + Math.Sqrt(5)) / 2), i)) - (Math.Pow(((1 - Math.Sqrt(5)) / 2), i))));
-                }
-
             }
             for (int i = 0; i < n; i++)
             {
-                Console.Write("\na[" + i + "]: " + (int)a[i]);
+                if (max == a[i])
+                {
+                    countmax += 1;
+                }
+                else if (min == a[i])
+                {
+                    countmin += 1;
+                }
             }
+            Console.WriteLine(max); 
+                Console.WriteLine(countmax);
+            Console.WriteLine(min); 
+                Console.WriteLine(countmin);
         }
     }
 }
