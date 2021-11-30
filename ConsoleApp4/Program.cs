@@ -6,39 +6,31 @@ namespace String
     {
         static void Main(string[] args)
         {
-            int n = 10;
-            string[] ktra = new string[n];
-            char[] a = new char[n];
-            int a1;
-        vietlai:
+            int n = 5;
+            int m = 7;
+            double[,] a = new double[n, m];
+            Random r = new Random();
             for (int i = 0; i < n; i++)
             {
-                Console.Write("\na[" + i + "]: ");
-                ktra[i] = Console.ReadLine();
-            }
-            for (int i = 0; i < n; i++)
-            {
-                if (char.TryParse(ktra[i], out a[i]) == false)
+                for (int j = 0; j < m; j++)
                 {
-                    Console.Write("Trong chuoi co ki khong phai a-z");
-                    goto vietlai;
-                }
-            } 
-                for (int i = 0; i < n; i++)
-            {
-                if(Char.Parse(ktra[i])<'a'|| Char.Parse(ktra[i]) > 'z')
-                {
-                    Console.Write("Trong chuoi co ki khong phai a-z");
-                    goto vietlai;
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                a[i] = Char.ToUpper(Char.Parse(ktra[i]));
-                Console.Write("\na[" + i + "]: " + a[i]);
-            }
+                    a[i, j] = r.Next(15,20);
+                    Console.Write("\na[" + i + "," + j + "]: " + a[i, j]);
 
+                }
+            }
+                Console.Write("\nHoc vien :  CF  :  C   :  HDJ  : DU  :RDBNS : Java :  TB  ");
+                Console.Write("\n----------------------------------------------------------");
+            for (int ai = 0; ai < n; ai++)
+            {
+                Console.Write("\nHV" + (ai + 1) + "      ");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(": " + string.Format("{0:0.0}", a[ai, j]) + " ");
+                }
+            }
+                Console.Write("\n----------------------------------------------------------");
+            }
         }
     }
-}
             
