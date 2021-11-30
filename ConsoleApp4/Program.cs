@@ -4,27 +4,17 @@ namespace String
 {
     class Program
     { 
-        static void Diemtb(double a, double b)
+     static void power(int a,int b)
         {
-           double c= (a + b) / 2;
-            Console.Write(c);
+            double c = Math.Pow(a, b);
+            Console.Write("Gia tri cua a mu n la: "+ c);
         }
-        static void Main(string[] args)
-        {            
-            Console.Write("\n -----------------------------");
-            Console.Write("\n Ho ten   : ");
-            string ten = Console.ReadLine();
-            Console.Write(" Lop      : ");
-            string lop = Console.ReadLine();
-            Console.Write(" Diemtoan : ");
-            int diemtoan = Convert.ToInt32(Console.ReadLine());
-            Console.Write(" Diemvan  : ");
-            int diemvan = Convert.ToInt32(Console.ReadLine());
-            Console.Write(" Diemtb   : ");
-            Diemtb(diemtoan, diemvan);
-            Console.Write("\n -----------------------------");
+     static void Main(string[] args)
+        {
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            power(a,b);
         }
-
     }
 }
             
