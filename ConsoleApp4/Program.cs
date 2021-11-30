@@ -6,29 +6,38 @@ namespace String
     {
         static void Main(string[] args)
         {
-            int n = 20;
-            int[] a = new int[n];
-            Random r = new Random();
-            for (int i = 0; i < n; i++) 
+            int n = 10;
+            string[] ktra = new string[n];
+            char[] a = new char[n];
+            int a1;
+        vietlai:
+            for (int i = 0; i < n; i++)
             {
-                a[i] = r.Next(1, 1000);
-                Console.Write("\na[" + i + "]: "+a[i]);
-                
+                Console.Write("\na[" + i + "]: ");
+                ktra[i] = Console.ReadLine();
             }
-            Console.Write("\n Nhap x: ");
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\n Cac so chia het cho x la: ");
+            for (int i = 0; i < n; i++)
             {
-                for (int i = 0; i < n; i++)
+                if (char.TryParse(ktra[i], out a[i]) == false)
                 {
-                    if(a[i]%x==0)
-                    {
-                        Console.Write("\na[" + i + "]: "+a[i]);
-                    }
+                    Console.Write("Trong chuoi co ki khong phai a-z");
+                    goto vietlai;
+                }
+            } 
+                for (int i = 0; i < n; i++)
+            {
+                if(Char.Parse(ktra[i])<'a'|| Char.Parse(ktra[i]) > 'z')
+                {
+                    Console.Write("Trong chuoi co ki khong phai a-z");
+                    goto vietlai;
                 }
             }
-          
-           
+            for (int i = 0; i < n; i++)
+            {
+                a[i] = Char.ToUpper(Char.Parse(ktra[i]));
+                Console.Write("\na[" + i + "]: " + a[i]);
+            }
+
         }
     }
 }
