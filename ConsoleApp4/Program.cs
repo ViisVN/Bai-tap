@@ -4,41 +4,63 @@ namespace String
 {
     class Program
     {
-        static void Diem(float a)
+        static void menu(string n)
         {
-            if(a>=0&&a<=3.9)
+           
+                switch (Convert.ToInt32(n))
+                {
+                    case 1:
+                        Console.Write("| Doing menu 1......                                                                                                   |\n"); break;
+                    case 2:
+                        Console.Write("| Doing menu 2......                                                                                                   |\n"); break;
+                    case 3:
+                        Console.Write("| Doing menu 3......                                                                                                   |\n"); break;
+                    case 4:
+                        Console.Write("| Doing menu 4......                                                                                                   |\n"); break;               
+                }
+            if (Convert.ToInt32(n) == 5)
             {
-                Console.Write("F");
-            }    
-            else if(a>=4.0&&a<=5.4)
-            {
-                Console.Write("D");
-            }
-            else if (a >= 5.5 && a <= 6.9)
-            {
-                Console.Write("C");
-            }
-            else if (a >= 7.0 && a <= 8.4)
-            {
-                Console.Write("B");
-            }
-            else if (a >= 8.5 && a <= 10)
-            {
-                Console.Write("A");
+                        Console.Write("| Exit...............                                                                                                  |\n");
             }
             else
             {
-                Console.Write("E");
+                nhap(n);
+            }
+        }
+        static void nhap(string n)
+        {
+            Console.Write("|            PLEASE CHOOSE: ");
+            n = Console.ReadLine();
+            if (Convert.ToChar(n) >= 'a' && Convert.ToChar(n) <= 'z' || Convert.ToChar(n) >= 'A' && Convert.ToChar(n) <= 'Z' || Convert.ToInt32(n) < 1 || Convert.ToInt32(n) > 5)
+            {
+                Console.Write("| Please choose again                                                                                                  |");
+                nhap(n);
+
+            }
+            else 
+            {
+                menu(n);
             }    
         }
         static void Main(string[] args)
         {
-            Console.Write("\nNhap diem: ");
-            float a= float.Parse(Console.ReadLine());
-            Console.Write("Thu hang la: ");
-            Diem(a);
+            string n="abc";
+            Console.WriteLine("+----------------------------------------------------------------------------------------------------------------------+");
+            Console.WriteLine("|                                                      Menu                                                            |");
+            Console.WriteLine("+----------------------------------------------------------------------------------------------------------------------+");
+            Console.WriteLine("| 1. Menu 1                                                                                                            |");
+            Console.WriteLine("| 2. Menu 2                                                                                                            |");
+            Console.WriteLine("| 3. Menu 3                                                                                                            |");
+            Console.WriteLine("| 4. Menu 4                                                                                                            |");
+            Console.WriteLine("| 5. Exit                                                                                                              |");
+            Console.WriteLine("+----------------------------------------------------------------------------------------------------------------------+");
+            nhap(n);
+            Console.WriteLine("+----------------------------------------------------------------------------------------------------------------------+");
+
+
         }
-      
     }
+
 }
+
             
