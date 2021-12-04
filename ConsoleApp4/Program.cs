@@ -31,7 +31,7 @@ namespace String
         {
             Console.Write("|            PLEASE CHOOSE: ");
             n = Console.ReadLine();
-            if (Convert.ToChar(n) >= 'a' && Convert.ToChar(n) <= 'z' || Convert.ToChar(n) >= 'A' && Convert.ToChar(n) <= 'Z' || Convert.ToInt32(n) < 1 || Convert.ToInt32(n) > 5)
+            if (n.Length>=2)
             {
                 Console.Write("| Please choose again                                                                                                  |");
                 nhap(n);
@@ -39,7 +39,16 @@ namespace String
             }
             else 
             {
-                menu(n);
+                if (Convert.ToChar(n) >= 'a' && Convert.ToChar(n) <= 'z' || Convert.ToChar(n) >= 'A' && Convert.ToChar(n) <= 'Z' || Convert.ToInt32(n) < 1 || Convert.ToInt32(n) > 5)
+                {
+                    Console.Write("| Please choose again                                                                                                  |");
+                    nhap(n);
+
+                }
+                else
+                {
+                    menu(n);
+                }
             }    
         }
         static void Main(string[] args)
