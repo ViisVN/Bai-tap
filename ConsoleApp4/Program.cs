@@ -6,60 +6,38 @@ namespace String
     {
         static void Main(string[] args)
         {
-            string a = " ";
-            nhap(a);
-         
+            int n = 0, m = 0;
+            nhap(n, m);
         }
-
-        static void nhap(string a)
+        static void nhap(int n,int m)
         {
-            Console.Write("\n Nhap: ");
-            a = Console.ReadLine();
-            haikitu(a);
-        }
-        static void haikitu(string a)
+            Console.Write("\nNhap n: ");
+            n = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nNhap m: ");
+            m = Convert.ToInt32(Console.ReadLine());
+            if(n<=0||m<=0||n>m)
             {
-                if (a.Length >= 2)
-                {
-                    Console.WriteLine("- Co hon hai ki tu");
-                nhap(a);
+                Console.WriteLine("Nhap lai");
+                nhap(n,m);
             }
-                else
+            else
+            {
+                chia7(n,m);
+            }
+        }
+        static void chia7(int n,int m)
+        {
+            Console.Write("\nSo chia het cho 7 la: ");
+            for(int i = n; i <=m; i++)
+            {
+                if(i%7==0)
                 {
-                    kitu(char.Parse(a));
+                    Console.Write(i + " ");
                 }
-            }
-        static void kitu(char a)
-            {
-                if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z')
-                {
-                    Console.WriteLine("- "+a + " la chu cai");
-                nhap(Convert.ToString(a));
-            }
-                else
-                {
-                chuso(a);
-                 }
-            }
-        static void chuso(char a)
-            { 
-                if (a >= '0' && a<= '9')
-                {
-                    Console.WriteLine("- " + a + " la chu so");
-                nhap(Convert.ToString(a));
-            }
-                else if (a ==' ')
-            {
-                Console.WriteLine("- Ket thuc");
-            }
-                else
-            {
-                Console.WriteLine("- " + a + "la ki tu dac biet");
-                nhap(Convert.ToString(a));
-            }
-            }
+            }    
         }
-    }
+     } 
+}
 
 
             
