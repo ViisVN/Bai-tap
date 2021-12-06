@@ -6,41 +6,57 @@ namespace String
     {
         static void Main(string[] args)
         {
-            int[] n = new int[10];
-            Random r = new Random();
-            for (int i = 0; i < 10; i++)
+            string a = " ";
+            nhap(a);
+         
+        }
+
+        static void nhap(string a)
+        {
+            Console.Write("\n Nhap: ");
+            a = Console.ReadLine();
+            haikitu(a);
+        }
+        static void haikitu(string a)
             {
-                
-                n[i] = r.Next(1, 30);
-                Console.Write("n[" + i + "]: "+n[i]+"\n");
-            }
-           for (int i = 0; i < 10; i++)
+                if (a.Length >= 2)
                 {
-                    if (cong(n[i]) == n[i])
-                    {
-                        Console.WriteLine(n[i]+" la so hoan hao");
-                    }
-                }
-
+                    Console.WriteLine("- Co hon hai ki tu");
+                nhap(a);
             }
-
-            static int cong(int n)
+                else
+                {
+                    kitu(char.Parse(a));
+                }
+            }
+        static void kitu(char a)
             {
-                int[] b = new int[n];
-                int sum = 0;
-                for (int i = 0; i < n; i++)
+                if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z')
                 {
-                    b[i] = i + 1;
-                }
-                for (int i = 0; i < (n - 1); i++)
+                    Console.WriteLine("- "+a + " la chu cai");
+                nhap(Convert.ToString(a));
+            }
+                else
                 {
-                    if (n % b[i] == 0)
-                    {
-                        sum += b[i];
-                    }
-                }
-
-                return sum;
+                chuso(a);
+                 }
+            }
+        static void chuso(char a)
+            { 
+                if (a >= '0' && a<= '9')
+                {
+                    Console.WriteLine("- " + a + " la chu so");
+                nhap(Convert.ToString(a));
+            }
+                else if (a ==' ')
+            {
+                Console.WriteLine("- Ket thuc");
+            }
+                else
+            {
+                Console.WriteLine("- " + a + "la ki tu dac biet");
+                nhap(Convert.ToString(a));
+            }
             }
         }
     }
