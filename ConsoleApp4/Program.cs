@@ -7,35 +7,26 @@ namespace String
         static void Main(string[] args)
         {
             int n = 0;
-            nhap(ref n);
-        }
-        static int nhap(ref int n)
-        {
-            n = Convert.ToInt32(Console.ReadLine());
+             n = Convert.ToInt32(Console.ReadLine());
             check(n);
+        }
+        static double fina(double n)
+        {
+            n = (1 / Math.Sqrt(5) * ((Math.Pow(((1 + Math.Sqrt(5)) / 2), n)) - (Math.Pow(((1 - Math.Sqrt(5)) / 2), n))));
             return n;
-            
         }
         static void check(int n)
         {
-            if (n <= 0)
+            double [] a = new double[n];
+            for(int i = 0; i < n; i++)
             {
-                Console.WriteLine("n phai lon hon 0");
-                nhap(ref n);
+                a[i] = fina(i+1);
             }
-            else {
-                sum(Convert.ToString(n));
-                 }
-        }
-        static void sum(string n)
-        {
-            Console.Write("Tong cong la: ");
-            int sum = 0;
-            for (int i = 0; i < n.Length; i++)
+            Console.WriteLine("Day finabocci gom cua " + n+" so gom: ");
+            for (int i = 0; i < n; i++)
             {
-                sum += ((int)(n[i])-48);
+                Console.Write((int)a[i] + " ");
             }
-            Console.WriteLine(sum);
         }
     } 
 
