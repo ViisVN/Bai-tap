@@ -6,37 +6,54 @@ namespace String
     {
         static void Main(string[] args)
         {
-            int n = 0, m = 0;
-            nhap(n, m);
+            string n ="";
+            Console.Write("\n  SO THICH CA NHAN  ");
+            Console.Write("\n====================");
+            Console.Write("\n1. Doc sach");
+            Console.Write("\n2. Nghe nhac");
+            Console.Write("\n3. Choi the thao");
+            Console.Write("\n4. May tinh");
+            Console.Write("\n5. Thoat\n");
+            Option(n);
+            Console.Write("====================");
+
         }
-        static void nhap(int n,int m)
-        {
-            Console.Write("\nNhap n: ");
-            n = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nNhap m: ");
-            m = Convert.ToInt32(Console.ReadLine());
-            if(n<=0||m<=0||n>m)
+        static void Option(string n)    {
+            int m=0;
+            Console.Write("--------------------\n");
+            Console.Write("Chon: ");
+            n = (Console.ReadLine());
+            Console.Write("--------------------\n");
+            if (n.Length >= 2)
             {
-                Console.WriteLine("Nhap lai");
-                nhap(n,m);
+                Console.WriteLine("Ban nhap sai! Moi nhap lai!");
+                Option(n);
+            }
+            else if (char.Parse(n) >= 'a' && char.Parse(n) >= 'a' || char.Parse(n) >= 'A' && char.Parse(n) >= 'Z')
+            {
+                Console.WriteLine("Ban nhap sai! Moi nhap lai!");
+                Option(n);
+            }
+            else if ((int)Convert.ToChar(n) >= 32 & (int)Convert.ToChar(n) <= 47 || (int)Convert.ToChar(n) >= 58 && (int)Convert.ToChar(n) <= 126)
+            {
+                Console.WriteLine("Ban nhap sai! Moi nhap lai!");
+                Option(n);
             }
             else
-            {
-                chia7(n,m);
+            { 
+                switch (Convert.ToInt32(n))
+                {
+                    case 1: Console.WriteLine("Ban chon doc sach."); Option(n); break;
+                    case 2: Console.WriteLine("Ban chon nghe nhac."); Option(n); break;
+                    case 3: Console.WriteLine("Ban chon choi the thao."); Option(n); break;
+                    case 4: Console.WriteLine("Ban chon may tinh."); Option(n); break;
+                    case 5: Console.WriteLine("Hen gap lai!"); break;
+                    default: Console.WriteLine("Ban nhap sai! Moi nhap lai!"); Option(n); break;
+                }
             }
         }
-        static void chia7(int n,int m)
-        {
-            Console.Write("\nSo chia het cho 7 la: ");
-            for(int i = n; i <=m; i++)
-            {
-                if(i%7==0)
-                {
-                    Console.Write(i + " ");
-                }
-            }    
-        }
-     } 
+
+    } 
 }
 
 
