@@ -1,36 +1,51 @@
-﻿using System;
-
-namespace String
+﻿namespace String
 {
     class Program
-   {
+    {
         static void Main(string[] args)
         {
             int n = 0;
-             n = Convert.ToInt32(Console.ReadLine());
-            check(n);
-        }
-        static double fina(double n)
-        {
-            n = (1 / Math.Sqrt(5) * ((Math.Pow(((1 + Math.Sqrt(5)) / 2), n)) - (Math.Pow(((1 - Math.Sqrt(5)) / 2), n))));
-            return n;
-        }
-        static void check(int n)
-        {
-            double [] a = new double[n];
-            for(int i = 0; i < n; i++)
+            int range = Convert.ToInt32(Console.ReadLine());
+            int count = 0;
+            int[] a = new int[short.MaxValue];
+            int[] v = new int[range];
+            for (int i = 0; i < short.MaxValue; i++)
             {
-                a[i] = fina(i+1);
+                a[i] = i + 1;
             }
-            Console.WriteLine("Day finabocci gom cua " + n+" so gom: ");
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i< short.MaxValue; i++)
             {
-                Console.Write((int)a[i] + " ");
+                for (int j = 0;j< short.MaxValue; j++)
+                {
+                    if(a[i]%(j+1)==0)
+                    {
+                        count++;
+                    }
+                    if (count == 2 && a[i] == (j + 1))
+                    {
+                        Console.WriteLine("a[" + i + "] "+a[i]);
+                        v[n] = a[i];
+                        n++;
+                        count = 0;
+                        break;
+                    }
+                }
+                if(count >2)
+                {
+                    count = 0;
+                }
+                if(n==range)
+                {
+                    break;
+                }
+            }
+            for(int i = 0; i<range;i++)
+            {
+                Console.WriteLine("v[" + i + "] " + v[i]);
             }
         }
-    } 
+    }
 
 }
 
 
-            
