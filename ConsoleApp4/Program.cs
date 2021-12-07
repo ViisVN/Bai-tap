@@ -11,7 +11,7 @@
         }
         static void tinhsonguyento(int[] a, ref int[] b, int range)
         {
-            int n = 0;
+            int n = 1;
             int count = 0;
             for (int i = 0; i < short.MaxValue; i++)
             {
@@ -46,7 +46,9 @@
         }
         static void xuatdulieu(int[] a,int range)
         {
-            for(int i =0; i<range;i++)
+            a[0] = 2;
+            Console.WriteLine("[" + 0 + "] : " + a[0]);
+            for (int i =1; i<range;i++)
             {
                 Console.WriteLine("[" + i + "] : " + a[i]);
             }
