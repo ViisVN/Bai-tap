@@ -9,7 +9,7 @@
             int length = 0;
             int j = 0;
             int n = Convert.ToInt32(Console.ReadLine());
-            while (n >= 2)
+            while (n >= 1)
             {
                 if (n % 2 == 0)
                 {
