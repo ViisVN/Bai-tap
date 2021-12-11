@@ -2,69 +2,37 @@
 {
     class Program
     {
-        static void socantinh(ref int[] a)
+        static void Main(string[] args)
         {
-            for (int i = 0; i < short.MaxValue; i++)
+            string s;
+            string s_1 = "";
+            int length = 0;
+            int j = 0;
+            int n = Convert.ToInt32(Console.ReadLine());
+            while (n >= 2)
             {
-                a[i] = i + 1;
-            }
-        }
-        static void tinhsonguyento(int[] a, ref int[] b, int range)
-        {
-            int n = 1;
-            int count = 0;
-            for (int i = 0; i < short.MaxValue; i++)
-            {
-                for (int j = 0; j < short.MaxValue; j++)
+                if (n % 2 == 0)
                 {
-                    if (a[i] % (j + 1) == 0)
-                    {
-                        count++;
-                    }
-                    if (count == 2 && a[i] == (j + 1))
-                    {
-                        b[n] = a[i];
-                        n++;
-                        count = 0;
-                        break;
-                    }
-                    if (count > 2)
-                    {
-                        break;
-                    }
+                    s_1 = s_1.Insert(length, "0");
+                    n = n / 2;
+                    length++;
                 }
-                if (count > 2)
+                if (n % 2 == 1)
                 {
-                    count = 0;
+                    s_1 = s_1.Insert(length, "1");
+                    n = (n / 2);
+                    length++;
                 }
-                if (n == range)
-                {
-                    break;
-                }
+                
 
             }
-        }
-        static void xuatdulieu(int[] a,int range)
-        {
-            a[0] = 2;
-            Console.WriteLine("[" + 0 + "] : " + a[0]);
-            for (int i =1; i<range;i++)
+            for(int i = s_1.Length-1;i>=0;i--)
             {
-                Console.WriteLine("[" + i + "] : " + a[i]);
-            }
-        }
-            static void Main(string[] args)
-            {
-                Console.Write("Nhap so luong so nguyen to ban muon xuat ra: ");
-                int range = Convert.ToInt32(Console.ReadLine());
-                int[] v = new int[range];
-                int[] a = new int[short.MaxValue];  //Tinh den gioi han cua short
-                socantinh(ref a);
-                tinhsonguyento(a, ref v, range);
-                xuatdulieu(v, range);
+                Console.Write(s_1[i]);
             }
         }
 
     }
+}
 
 
