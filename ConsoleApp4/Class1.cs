@@ -2,29 +2,27 @@
 
 namespace String
 {
-    public class diem
+    public class product
     {
-        public string tenmonhoc;
-        public float diemLT;
-        public float diemTH;
-        public diem(string monhoc, float LT,float TH)
+        public int stt;
+        public string tensanpham;
+        public float soluong;
+        public float dongia;
+        public float tongtien(float soluong, float dongia)
         {
-            tenmonhoc = monhoc;
-            diemLT = LT;
-            diemTH = TH;
+            return (soluong * dongia);
         }
-        public void diem_TB(float diemLT, float diemTH)
+        public float tongcong(float a, float b, float c, float d, float e)
         {
-            float TB = (diemLT + diemTH) / 2;
-            Console.WriteLine(TB);
+            return a + b + c + d + e;
         }
-        public void lietke(string monhoc, float diemLT, float diemTH)
-        { 
-            Console.WriteLine("Ten mon hoc: " + monhoc);
-            Console.WriteLine("Diem ly thuyet: " + diemLT);
-            Console.WriteLine("Diem thuc hanh: " + diemTH);
-            Console.Write("Diem trung binh: ");
+        public product(int stt1, string tensanpham1, float soluong1, float dongia1)
+        {
+            stt = stt1;
+            tensanpham = tensanpham1;
+            soluong = soluong1;
+            dongia = dongia1;
         }
-
     }
+   
 }
