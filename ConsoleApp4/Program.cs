@@ -1,35 +1,14 @@
 ﻿namespace String
 {
-    class Program
+    class program
     {
         static void Main(string[] args)
         {
-            string s;
-            string s_1 = "";
-            int length = 0;
-            int j = 0;
-            int n = Convert.ToInt32(Console.ReadLine());
-            while (n >= 1)
-            {
-                if (n % 2 == 0)
-                {
-                    s_1 = s_1.Insert(length, "0");
-                    n = n / 2;
-                    length++;
-                }
-                if (n % 2 == 1)
-                {
-                    s_1 = s_1.Insert(length, "1");
-                    n = (n / 2);
-                    length++;
-                }
-                
-
-            }
-            for(int i = s_1.Length-1;i>=0;i--)
-            {
-                Console.Write(s_1[i]);
-            }
+            diem Java = new diem("Nhap mon Lap trinh voi Java", 9, 8);
+            Console.WriteLine("THONG TIN VE MON HOC");
+            Console.WriteLine("================================");
+            Java.lietke(Java.tenmonhoc, Java.diemLT, Java.diemTH);
+            Java.diem_TB(Java.diemLT, Java.diemTH);
         }
 
     }
