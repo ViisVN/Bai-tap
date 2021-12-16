@@ -2,27 +2,38 @@
 
 namespace String
 {
-    public class product
+    public class sub
     {
-        public int stt;
-        public string tensanpham;
-        public float soluong;
-        public float dongia;
-        public float tongtien(float soluong, float dongia)
+        public string subname;
+        public float LT;
+        public float TH;
+        public float TB()
         {
-            return (soluong * dongia);
+            return (LT + TH) / 2;
         }
-        public float tongcong(float a, float b, float c, float d, float e)
+
+        public sub(string subname, float lT, float tH)
         {
-            return a + b + c + d + e;
+            this.subname = subname;
+            LT = lT;
+            TH = tH;
         }
-        public product(int stt1, string tensanpham1, float soluong1, float dongia1)
+        public sub()
         {
-            stt = stt1;
-            tensanpham = tensanpham1;
-            soluong = soluong1;
-            dongia = dongia1;
+
+        }
+        public void Xuatdanhsach1()
+        {
+            Console.WriteLine("Mon : {0}", subname);
+            Console.WriteLine("DiemLT: {0}", LT);
+            Console.WriteLine("DiemTH: {0}", TH);
+            Console.WriteLine("DiemTB: {0}", TB());
+        }
+        
+        public void Xuatdanhsach2()
+        {
+            Console.WriteLine(" {0} : {1} : {2} : {3} ", subname, LT, TH, TB());
         }
     }
-   
+    
 }
