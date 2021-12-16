@@ -2,38 +2,32 @@
 
 namespace String
 {
-    public class sub
+    public class Bank
     {
-        public string subname;
-        public float LT;
-        public float TH;
-        public float TB()
-        {
-            return (LT + TH) / 2;
-        }
 
-        public sub(string subname, float lT, float tH)
+        public int stk;
+        public string name;
+        public double balance;
+        public double rate = 0.045;
+        public Bank(int stk1, string name1, int balance1)
         {
-            this.subname = subname;
-            LT = lT;
-            TH = tH;
+            stk = stk1;
+            name = name1;
+            balance = balance1;          
         }
-        public sub()
+        public Bank()
         {
 
         }
-        public void Xuatdanhsach1()
-        {
-            Console.WriteLine("Mon : {0}", subname);
-            Console.WriteLine("DiemLT: {0}", LT);
-            Console.WriteLine("DiemTH: {0}", TH);
-            Console.WriteLine("DiemTB: {0}", TB());
+        public void guest()
+            {
+            Console.WriteLine("==============================================");
+            Console.WriteLine("TEN KHACH HANG: {0}", name);
+                Console.WriteLine("SO TAI KHOAN: {0}", stk);
+                Console.WriteLine("SO DU: {0}$", balance);
+            Console.WriteLine("==============================================");
         }
         
-        public void Xuatdanhsach2()
-        {
-            Console.WriteLine(" {0} : {1} : {2} : {3} ", subname, LT, TH, TB());
-        }
     }
     
 }
