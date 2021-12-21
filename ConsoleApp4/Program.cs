@@ -8,9 +8,15 @@
             string b = null;
             string c = null;
 
+            Console.WriteLine("Cau goc");
+            Console.WriteLine(a);
+            a = a.ToLower();
             do//Xóa kí hiệu đặc biệt và dấu cách
             {
-                a = a.Remove(0, 1);
+                if ((a[0] >= ' ' && a[0] <= '/' || a[0] >= ':' && a[0] <= '@' || a[0] >= '[' && a[0] <= '`' || a[0] >= '{' && a[0] <= '~'))
+                {
+                    a = a.Remove(0, 1);
+                }
             } while (a[0] >= ' ' && a[0] <= '/' || a[0] >= ':' && a[0] <= '@' || a[0] >= '[' && a[0] <= '`' || a[0] >= '{' && a[0] <= '~');
             for (int i = a.Length - 1; i >= 0; i--)//Đảo ngược lại để xóa
             {
@@ -18,7 +24,10 @@
             }
             do//Xóa dấu cách và kí tự đặc biệt cuối câu
             {
-                b = b.Remove(0, 1);
+                if ((b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~'))
+                {
+                    b = b.Remove(0, 1);
+                }
             } while (b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~');
             for (int i = b.Length - 1; i >= 0; i--)
             {
@@ -62,24 +71,29 @@
             c = null;
             do//Xóa dấu cách và kí tự đặc biệt cuối câu
             {
-                b = b.Remove(0, 1);
+                if ((b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~'))
+                {
+                    b = b.Remove(0, 1);
+                }
             } while (b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~');
             for (int i = b.Length - 1; i >= 0; i--)//Đảo về câu đúng thứ tự
             {
                 c += b[i];
             }
-            for (int i = c.Length - 1; i >= 0; i--)//Upcase ki tu
+            if(c[0]>='a'&&c[0]<='z')//Upcase kí tự đầu
             {
-                if (c[i] == ' ' && c[i + 1] != ' ')
+                c = c.Insert(0, Convert.ToString((char)(int)(c[0] - 32)));
+                c = c.Remove(1, 1);
+            }    
+            for (int i = c.Length - 1; i >= 0; i--)//Upcase các kí tự giữa
+            {
+                if (c[i] == ' ' && c[i + 1] != ' '&&c[i+1]>='a'&& c[i + 1] <= 'z')
                 {
-                    Console.WriteLine((char)(int)(c[i + 1] - 32));
                     c = c.Insert(i+1, Convert.ToString((char)(int)(c[i + 1] - 32)));
                     c =c.Remove(i + 2,1);
                    
                 }    
-            }
-            Console.WriteLine("Cau goc");
-            Console.WriteLine(a);   
+            } 
             Console.WriteLine("Sau khi sua");
             Console.WriteLine(c);
         }
