@@ -28,7 +28,13 @@ namespace String
                 {                    
                     case 1: Nhapten(Namelist); break;
                     case 2: timkiemten(Namelist); break;
-                    case 3: chuanhoaten(Namelist, Chuanhoa); break;
+                    case 3:
+                        if(Chuanhoa.Count > 0)
+                        {
+                            Chuanhoa.Clear();
+                        }    
+                        chuanhoaten(Namelist, Chuanhoa);
+                        break;
                     case 4: Xuatten(Namelist,Chuanhoa); break;
                     case 0: Console.WriteLine("BAN DA THOAT"); break;
                 }    
@@ -37,14 +43,9 @@ namespace String
             while (m >= 1 && m <= 4);
         }
         static void Nhapten(ArrayList Name)
-        {
-            Console.WriteLine("SO LUONG TEN BAN MUON NHAP");
-            int a = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < a; i++)
-            {
-                Console.WriteLine(value: $"TEN {i+1}");
+        {          
                 Name.Add(Console.ReadLine());
-            }
+            
         }
         static void Xuatten(ArrayList Name,ArrayList ChuanHoa)
         { 
@@ -60,24 +61,27 @@ namespace String
         }
         static void chuanhoaten(ArrayList Name, ArrayList ChuanHoa)
         {
+            string d = null;
             string b = null;
             string c = null;
+            
 
             for (int i = 0; i < Name.Count; i++)
             {
                 b = null;
                 c = null;
-                Name[i] = Convert.ToString(Name[i]).ToLower();
+                d = Convert.ToString(Name[i]);
+                d = d.ToLower();
                 do//Xóa kí hiệu đặc biệt và dấu cách
                 {
-                    if ((Convert.ToString(Name[i])[0] >= ' ' && Convert.ToString(Name[i])[0] <= '/' || Convert.ToString(Name[i])[0] >= ':' && Convert.ToString(Name[i])[0] <= '@' || Convert.ToString(Name[i])[0] >= '[' && Convert.ToString(Name[i])[0] <= '`' || Convert.ToString(Name[i])[0] >= '{' && Convert.ToString(Name[i])[0] <= '~'))
+                    if (d[0] >= ' ' && d[0] <= '/' || d[0] >= ':' && d[0] <= '@' || d[0] >= '[' && d[0] <= '`' || d[0] >= '{' && d[0] <= '~')
                     {
-                        Name[i] = Convert.ToString(Name[i]).Remove(0, 1);
+                        d = d.Remove(0, 1);
                     }
-                } while (Convert.ToString(Name[i])[0] >= ' ' && Convert.ToString(Name[i])[0] <= '/' || Convert.ToString(Name[i])[0] >= ':' && Convert.ToString(Name[i])[0] <= '@' || Convert.ToString(Name[i])[0] >= '[' && Convert.ToString(Name[i])[0] <= '`' || Convert.ToString(Name[i])[0] >= '{' && Convert.ToString(Name[i])[0] <= '~');
-                for (int j = Convert.ToString(Name[i]).Length - 1; j >= 0; j--)//Đảo ngược lại để xóa
+                } while (d[0] >= ' ' && d[0] <= '/' || d[0] >= ':' && d[0] <= '@' || d[0] >= '[' && d[0] <= '`' || d[0] >= '{' && d[0] <= '~');
+                for (int j = d.Length - 1; j >= 0; j--)//Đảo ngược lại để xóa
                 {
-                    b += Convert.ToString(Name[i])[j];
+                    b += d[j];
                 }
                 do//Xóa dấu cách và kí tự đặc biệt cuối câu
                 {
@@ -152,7 +156,6 @@ namespace String
                     }
                 }
                 ChuanHoa.Add(c);
-                
             }
             again:
             Console.Write("Ban co muon xuat danh sach? Y/N: ");
@@ -161,10 +164,6 @@ namespace String
                 if (a == "Y")
                 {
                    Xuatten(Name,ChuanHoa);
-                    for(int i=0;i<Name.Count;i++)
-                    {
-                        Name[i] = ChuanHoa[i];
-                    }    
                 }
                 else if(a=="N")
                 {
@@ -178,6 +177,7 @@ namespace String
             }
 
         }
+                
         static void timkiemten(ArrayList Name)
         {
             Console.WriteLine("HO HOAC TEN BAN CAN TIM: ");
