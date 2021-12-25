@@ -1,102 +1,205 @@
-﻿namespace String
+﻿using System;
+using System.Collections;
+
+namespace String
 {
     class program
     {
         static void Main(string[] args)
         {
-            string a = Console.ReadLine();
+         ArrayList Namelist = new ArrayList();
+         ArrayList Chuanhoa = new ArrayList();
+            int m = 0;
+            do
+            {
+                Console.WriteLine("------------------------------");
+                Console.WriteLine("             MENU             ");
+                Console.WriteLine("------------------------------");
+                Console.WriteLine("1. Nhap ten hoc vien moi");
+                Console.WriteLine("2. Tim kiem hoc vien");
+                Console.WriteLine("3. Chuan hoa ten hoc vien");
+                Console.WriteLine("4. Hien thi danh sach hoc vien");
+                Console.WriteLine("0. Thoat");
+                Console.WriteLine("------------------------------");
+                Console.Write("Nhap menu: ");
+                m=Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("------------------------------");
+                switch(m)
+                {                    
+                    case 1: Nhapten(Namelist); break;
+                    case 2: timkiemten(Namelist); break;
+                    case 3: chuanhoaten(Namelist, Chuanhoa); break;
+                    case 4: Xuatten(Namelist,Chuanhoa); break;
+                    case 0: Console.WriteLine("BAN DA THOAT"); break;
+                }    
+
+            }
+            while (m >= 1 && m <= 4);
+        }
+        static void Nhapten(ArrayList Name)
+        {
+            Console.WriteLine("SO LUONG TEN BAN MUON NHAP");
+            int a = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < a; i++)
+            {
+                Console.WriteLine(value: $"TEN {i+1}");
+                Name.Add(Console.ReadLine());
+            }
+        }
+        static void Xuatten(ArrayList Name,ArrayList ChuanHoa)
+        { 
+                Console.WriteLine("-----------------------------------------");
+            Console.WriteLine(":STT:     TEN CU       : TEN MOI ");
+                Console.WriteLine("-----------------------------------------");
+                for (int i = 0; i < Name.Count; i++)
+                {
+                    Console.WriteLine(value: $":{i + 1}: {Name[i]}    : {ChuanHoa[i]} ");
+                }
+                Console.WriteLine("-----------------------------------------");
+           
+        }
+        static void chuanhoaten(ArrayList Name, ArrayList ChuanHoa)
+        {
             string b = null;
             string c = null;
 
-            Console.WriteLine("Cau goc");
-            Console.WriteLine(a);
-            a = a.ToLower();
-            do//Xóa kí hiệu đặc biệt và dấu cách
+            for (int i = 0; i < Name.Count; i++)
             {
-                if ((a[0] >= ' ' && a[0] <= '/' || a[0] >= ':' && a[0] <= '@' || a[0] >= '[' && a[0] <= '`' || a[0] >= '{' && a[0] <= '~'))
+                b = null;
+                c = null;
+                Name[i] = Convert.ToString(Name[i]).ToLower();
+                do//Xóa kí hiệu đặc biệt và dấu cách
                 {
-                    a = a.Remove(0, 1);
-                }
-            } while (a[0] >= ' ' && a[0] <= '/' || a[0] >= ':' && a[0] <= '@' || a[0] >= '[' && a[0] <= '`' || a[0] >= '{' && a[0] <= '~');
-            for (int i = a.Length - 1; i >= 0; i--)//Đảo ngược lại để xóa
-            {
-                b += a[i];
-            }
-            do//Xóa dấu cách và kí tự đặc biệt cuối câu
-            {
-                if ((b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~'))
-                {
-                    b = b.Remove(0, 1);
-                }
-            } while (b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~');
-            for (int i = b.Length - 1; i >= 0; i--)
-            {
-                c += b[i];
-            }
-            b = null;
-            for (int i = 33; i <= 47; i++)//Xóa các kí tự đặc biệt giữa câu
-            {
-                c = c.Replace(Convert.ToString((char)i), "");
-            }
-            for (int i = 58; i <= 64; i++)
-            {
-                c = c.Replace(Convert.ToString((char)i), "");
-            }
-            for (int i = 91; i <= 96; i++)
-            {
-                c = c.Replace(Convert.ToString((char)i), "");
-            }
-            for (int i = 123; i <= 126; i++)
-            {
-                c = c.Replace(Convert.ToString((char)i), "");
-            }
-            for (int i = 0; i < c.Length; i++)//Xoa dau bang ngang cau
-            {
-                if (c[i] == ' ' && c[i] == c[i + 1])
-                {
-                Again:
-                    c = c.Remove(i, 1);
-                    c += ',';
-
-                    if (c[i] == ' ' && c[i] == c[i + 1])
+                    if ((Convert.ToString(Name[i])[0] >= ' ' && Convert.ToString(Name[i])[0] <= '/' || Convert.ToString(Name[i])[0] >= ':' && Convert.ToString(Name[i])[0] <= '@' || Convert.ToString(Name[i])[0] >= '[' && Convert.ToString(Name[i])[0] <= '`' || Convert.ToString(Name[i])[0] >= '{' && Convert.ToString(Name[i])[0] <= '~'))
                     {
-                        goto Again;
+                        Name[i] = Convert.ToString(Name[i]).Remove(0, 1);
+                    }
+                } while (Convert.ToString(Name[i])[0] >= ' ' && Convert.ToString(Name[i])[0] <= '/' || Convert.ToString(Name[i])[0] >= ':' && Convert.ToString(Name[i])[0] <= '@' || Convert.ToString(Name[i])[0] >= '[' && Convert.ToString(Name[i])[0] <= '`' || Convert.ToString(Name[i])[0] >= '{' && Convert.ToString(Name[i])[0] <= '~');
+                for (int j = Convert.ToString(Name[i]).Length - 1; j >= 0; j--)//Đảo ngược lại để xóa
+                {
+                    b += Convert.ToString(Name[i])[j];
+                }
+                do//Xóa dấu cách và kí tự đặc biệt cuối câu
+                {
+                    if ((b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~'))
+                    {
+                        b = b.Remove(0, 1);
+                    }
+                } while (b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~');
+                for (int j = b.Length - 1; j >= 0; j--)
+                {
+                    c += b[j];
+                }
+                b = null;
+                for (int j = 33; j <= 47; j++)//Xóa các kí tự đặc biệt giữa câu
+                {
+                    c = c.Replace(Convert.ToString((char)i), "");
+                }
+                for (int j = 58; j <= 64; j++)
+                {
+                    c = c.Replace(Convert.ToString((char)i), "");
+                }
+                for (int j = 91; j <= 96; j++)
+                {
+                    c = c.Replace(Convert.ToString((char)i), "");
+                }
+                for (int j = 123; j <= 126; j++)
+                {
+                    c = c.Replace(Convert.ToString((char)i), "");
+                }
+                for (int j = 0; j < c.Length; j++)//Xoa dau bang ngang cau
+                {
+                    if (c[j] == ' ' && c[j] == c[j + 1])
+                    {
+                    Again:
+                        c = c.Remove(j, 1);
+                        c += ',';
+
+                        if (c[j] == ' ' && c[j] == c[j + 1])
+                        {
+                            goto Again;
+                        }
                     }
                 }
-            }
-            for (int i = c.Length - 1; i >= 0; i--)//Đảo ngược lại để xóa
-            {
-                b += c[i];
-            }
-            c = null;
-            do//Xóa dấu cách và kí tự đặc biệt cuối câu
-            {
-                if ((b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~'))
+                for (int j = c.Length - 1; j >= 0; j--)//Đảo ngược lại để xóa
                 {
-                    b = b.Remove(0, 1);
+                    b += c[j];
                 }
-            } while (b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~');
-            for (int i = b.Length - 1; i >= 0; i--)//Đảo về câu đúng thứ tự
-            {
-                c += b[i];
-            }
-            if(c[0]>='a'&&c[0]<='z')//Upcase kí tự đầu
-            {
-                c = c.Insert(0, Convert.ToString((char)(int)(c[0] - 32)));
-                c = c.Remove(1, 1);
-            }    
-            for (int i = c.Length - 1; i >= 0; i--)//Upcase các kí tự giữa
-            {
-                if (c[i] == ' ' && c[i + 1] != ' '&&c[i+1]>='a'&& c[i + 1] <= 'z')
+                c = null;
+                do//Xóa dấu cách và kí tự đặc biệt cuối câu
                 {
-                    c = c.Insert(i+1, Convert.ToString((char)(int)(c[i + 1] - 32)));
-                    c =c.Remove(i + 2,1);
-                   
+                    if ((b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~'))
+                    {
+                        b = b.Remove(0, 1);
+                    }
+                } while (b[0] >= ' ' && b[0] <= '/' || b[0] >= ':' && b[0] <= '@' || b[0] >= '[' && b[0] <= '`' || b[0] >= '{' && b[0] <= '~');
+                for (int j = b.Length - 1; j >= 0; j--)//Đảo về câu đúng thứ tự
+                {
+                    c += b[j];
+                }
+                if (c[0] >= 'a' && c[0] <= 'z')//Upcase kí tự đầu
+                {
+                    c = c.Insert(0, Convert.ToString((char)(int)(c[0] - 32)));
+                    c = c.Remove(1, 1);
+                }
+                for (int j = c.Length - 1; j >= 0; j--)//Upcase các kí tự giữa
+                {
+                    if (c[j] == ' ' && c[j + 1] != ' ' && c[j + 1] >= 'a' && c[j + 1] <= 'z')
+                    {
+                        c = c.Insert(j + 1, Convert.ToString((char)(int)(c[j + 1] - 32)));
+                        c = c.Remove(j + 2, 1);
+
+                    }
+                }
+                ChuanHoa.Add(c);
+                
+            }
+            again:
+            Console.Write("Ban co muon xuat danh sach? Y/N: ");
+            string a = Console.ReadLine();
+            {
+                if (a == "Y")
+                {
+                   Xuatten(Name,ChuanHoa);
+                    for(int i=0;i<Name.Count;i++)
+                    {
+                        Name[i] = ChuanHoa[i];
+                    }    
+                }
+                else if(a=="N")
+                {
+                    Console.WriteLine("Tiep tuc");
                 }    
-            } 
-            Console.WriteLine("Sau khi sua");
-            Console.WriteLine(c);
+                else
+                {
+                    Console.WriteLine("SAI LENH!!NHAP LAI!!");
+                    goto again;
+                }    
+            }
+
         }
+        static void timkiemten(ArrayList Name)
+        {
+            Console.WriteLine("HO HOAC TEN BAN CAN TIM: ");
+            string a = Console.ReadLine();
+            int count = 0;
+            for (int i = 0; i < Name.Count; i++)
+            {
+                if (Convert.ToString(Name[i]).ToLower().Contains(a.ToLower()))
+                {
+                    Console.WriteLine(Name[i]);
+                }
+                else
+                {
+                    count += 1;
+                }
+            }
+            if (count == Name.Count)//Truong hop count = name.count co nghia la khong co ten
+            {
+                Console.WriteLine("Khong co du lieu ten ban can tim");
+            }
+        }
+
     }
 }
         
