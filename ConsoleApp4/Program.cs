@@ -7,7 +7,7 @@ namespace String
     {
         static void Main(string[] args)
         {
-            Stack<int> stack = new Stack<int>();
+            Queue<int> a = new Queue<int>();
             int m = 1;
             do
             {
@@ -18,56 +18,35 @@ namespace String
                 Console.WriteLine("4. Duyet stack");
                 Console.WriteLine("0. Thoat");
                 m = Convert.ToInt32(Console.ReadLine());
-                switch(m)
+                switch (m)
                 {
-                    case 1: add(stack); break;
-                    case 2: lay(stack); break;
-                    case 3: seefirststack(stack); break;
-                    case 4: danhsach(stack); break;
+                    case 1: Add(a); break;
+                    case 2: Lay(a); break;
+                    case 3: Xem(a); break;
+                    case 4: Duyet(a); break;
                     case 0: m = 0; break;
                     default: m = 0; break;
                 }
             }
             while (m >= 1 && m <= 5);
         }
-        static void add(Stack<int> a)
+        static void Add(Queue<int> a)
         {
-            Console.WriteLine("Push vao stack");
             int b = Convert.ToInt32(Console.ReadLine());
-            a.Push(b);
+            a.Enqueue(b);
         }
-        static void lay(Stack<int> a)
-        {   
-            ArrayList b = new ArrayList();
-            for(int i = 0; i< a.Count; i++)
-            {
-                b.Add(a.Pop());                
-            }
-            a.Pop();
-            for(int i =b.Count-1;i>=0; i--)
-            {
-                a.Push(Convert.ToInt32(b[i]));
-            }
-        }
-        static void seefirststack(Stack<int> a)
+        static void Lay(Queue<int> a)
         {
-            ArrayList b = new ArrayList();
-            for (int i = 0; i < a.Count; i++)
-            {
-                b.Add(a.Pop());
-            }
-            Console.WriteLine(a.Peek());
-            for (int i = b.Count - 1; i >= 0; i--)
-            {
-                a.Push(Convert.ToInt32(b[i]));
-            }
+            a.Dequeue();
         }
-        static void danhsach(Stack<int> a)
+        static void Xem(Queue<int> a)
+        {
+            Console.WriteLine(a.Peek());
+        }
+        static void Duyet(Queue<int> a)
         {
             foreach(int b in a)
-            {
                 Console.WriteLine(b);
-            }
         }
      
     } 
