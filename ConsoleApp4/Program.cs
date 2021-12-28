@@ -7,90 +7,69 @@ namespace String
     {
         static void Main(string[] args)
         {
-            ArrayList List = new ArrayList();
+            Stack<int> stack = new Stack<int>();
             int m = 1;
-
             do
             {
-                Console.WriteLine("Demo cac thao tac Arraylist tren C#");
-                Console.WriteLine("===================================");
-                Console.WriteLine("1- Khoi tao danh sach");
-                Console.WriteLine("2- Them mot phan tu vao danh sach");
-                Console.WriteLine("3- Xoa 1 phan tu ra khoi danh sach");
-                Console.WriteLine("4- Chen 1 phan tu vao danh sach");
-                Console.WriteLine("5- Duyet danh sach");
-                Console.WriteLine("6- Tim 1 phan tu");
-                Console.WriteLine("7- Sap xep danh sach tang dan");
-                Console.WriteLine("8- Sap xep danh sach giam dan");
-                Console.WriteLine("0- Thoat chuong trinh");
-                Console.WriteLine("===================================");
+                Console.WriteLine("----------");
+                Console.WriteLine("1. Them 1 phan tu vao stack");
+                Console.WriteLine("2. Lay phan tu dau khoi stack");
+                Console.WriteLine("3. Xem phan tu dau stack");
+                Console.WriteLine("4. Duyet stack");
+                Console.WriteLine("0. Thoat");
                 m = Convert.ToInt32(Console.ReadLine());
                 switch(m)
                 {
-                    case 1: Console.WriteLine("Khoi tao danh sach"); break;
-                    case 2: Them(List); break;
-                    case 3: Xoa(List); break;
-                    case 4: Chen(List); break;
-                    case 5: Duyet(List); break;
-                    case 6: Tim(List); break;
-                    case 7: sortup(List); break;
-                    case 8: sortdown(List); break;
+                    case 1: add(stack); break;
+                    case 2: lay(stack); break;
+                    case 3: seefirststack(stack); break;
+                    case 4: danhsach(stack); break;
+                    case 0: m = 0; break;
                     default: m = 0; break;
-
                 }
-            } while (m >= 1 && m <= 8);
-
+            }
+            while (m >= 1 && m <= 5);
         }
-        static void Them(ArrayList a)
+        static void add(Stack<int> a)
         {
-            a.Add(Convert.ToInt32(Console.ReadLine()));
-        }
-        static void Xoa(ArrayList a)
-        {
+            Console.WriteLine("Push vao stack");
             int b = Convert.ToInt32(Console.ReadLine());
-            a.Remove(b);
+            a.Push(b);
         }
-        static void Chen(ArrayList a)
-        {
-            int b = Convert.ToInt32(Console.ReadLine());
-            int c = Convert.ToInt32(Console.ReadLine());
-            a.Insert(b, c);
+        static void lay(Stack<int> a)
+        {   
+            ArrayList b = new ArrayList();
+            for(int i = 0; i< a.Count; i++)
+            {
+                b.Add(a.Pop());                
+            }
+            a.Pop();
+            for(int i =b.Count-1;i>=0; i--)
+            {
+                a.Push(Convert.ToInt32(b[i]));
+            }
         }
-        static void Duyet(ArrayList a)
+        static void seefirststack(Stack<int> a)
         {
+            ArrayList b = new ArrayList();
             for (int i = 0; i < a.Count; i++)
             {
-                Console.WriteLine(Convert.ToInt32(a[i]));
+                b.Add(a.Pop());
             }
-        }
-        static void Tim(ArrayList a)
-        {
-            int b = Convert.ToInt32(Console.ReadLine());
-            int count = 0;
-            for(int i = 0; i < a.Count;i++)
+            Console.WriteLine(a.Peek());
+            for (int i = b.Count - 1; i >= 0; i--)
             {
-                if(Convert.ToInt32(a[i])==b)
-                {
-                    Console.WriteLine(value: $"Co phan tu {b} o index {i}");
-                    count++;
-                }
-
+                a.Push(Convert.ToInt32(b[i]));
             }
-            if (count == 0)
+        }
+        static void danhsach(Stack<int> a)
+        {
+            foreach(int b in a)
             {
-                Console.WriteLine("None");
+                Console.WriteLine(b);
             }
         }
-        static void sortup(ArrayList a)
-        {
-            a.Sort();
-            
-        }
-        static void sortdown(ArrayList a)
-        {
-            a.Sort();
-            a.Reverse();
-        }
+     
     } 
 }
         
